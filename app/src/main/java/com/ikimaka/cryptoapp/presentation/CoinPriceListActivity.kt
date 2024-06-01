@@ -1,13 +1,13 @@
-package com.ikimaka.cryptoapp
+package com.ikimaka.cryptoapp.presentation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.ikimaka.cryptoapp.adapters.CoinInfoAdapter
-import com.ikimaka.cryptoapp.pojo.CoinPriceInfo
+import com.ikimaka.cryptoapp.R
+import com.ikimaka.cryptoapp.presentation.adapters.CoinInfoAdapter
+import com.ikimaka.cryptoapp.data.model.CoinPriceInfo
 
 class CoinPriceListActivity : AppCompatActivity() {
 
@@ -26,7 +26,10 @@ class CoinPriceListActivity : AppCompatActivity() {
         adapter.onCoinClickListener = object: CoinInfoAdapter.OnCoinClickListener {
             override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
 
-                val intent = CoinDetailActivity.newIntent(this@CoinPriceListActivity, coinPriceInfo.fromSymbol)
+                val intent = CoinDetailActivity.newIntent(
+                    this@CoinPriceListActivity,
+                    coinPriceInfo.fromSymbol
+                )
                 startActivity(intent)
             }
         }

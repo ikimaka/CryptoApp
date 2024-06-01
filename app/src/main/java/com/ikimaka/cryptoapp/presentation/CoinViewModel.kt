@@ -1,14 +1,14 @@
-package com.ikimaka.cryptoapp
+package com.ikimaka.cryptoapp.presentation
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.google.gson.Gson
-import com.ikimaka.cryptoapp.api.ApiFactory
-import com.ikimaka.cryptoapp.database.AppDatabase
-import com.ikimaka.cryptoapp.pojo.CoinPriceInfo
-import com.ikimaka.cryptoapp.pojo.CoinPriceInfoRawData
+import com.ikimaka.cryptoapp.data.network.ApiFactory
+import com.ikimaka.cryptoapp.data.database.AppDatabase
+import com.ikimaka.cryptoapp.data.model.CoinPriceInfo
+import com.ikimaka.cryptoapp.data.model.CoinPriceInfoRawData
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit

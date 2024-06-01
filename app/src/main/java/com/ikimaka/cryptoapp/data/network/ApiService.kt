@@ -1,7 +1,7 @@
-package com.ikimaka.cryptoapp.api
+package com.ikimaka.cryptoapp.data.network
 
-import com.ikimaka.cryptoapp.pojo.CoinInfoListOfData
-import com.ikimaka.cryptoapp.pojo.CoinPriceInfoRawData
+import com.ikimaka.cryptoapp.data.model.CoinInfoListOfData
+import com.ikimaka.cryptoapp.data.model.CoinPriceInfoRawData
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

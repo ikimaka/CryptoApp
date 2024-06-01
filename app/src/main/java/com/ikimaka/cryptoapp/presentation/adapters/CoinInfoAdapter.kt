@@ -1,4 +1,4 @@
-package com.ikimaka.cryptoapp.adapters
+package com.ikimaka.cryptoapp.presentation.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.ikimaka.cryptoapp.R
-import com.ikimaka.cryptoapp.pojo.CoinPriceInfo
+import com.ikimaka.cryptoapp.data.model.CoinPriceInfo
 import com.squareup.picasso.Picasso
 
 

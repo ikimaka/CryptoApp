@@ -1,11 +1,11 @@
-package com.ikimaka.cryptoapp.database
+package com.ikimaka.cryptoapp.data.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.ikimaka.cryptoapp.pojo.CoinPriceInfo
+import com.ikimaka.cryptoapp.data.model.CoinPriceInfo
 
 @Dao
 interface CoinPriceInfoDao {
