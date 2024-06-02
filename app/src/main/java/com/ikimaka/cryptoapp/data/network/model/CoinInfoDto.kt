@@ -1,4 +1,4 @@
-package com.ikimaka.cryptoapp.data.model
+package com.ikimaka.cryptoapp.data.network.model
 
 
 import androidx.room.Entity
@@ -9,7 +9,7 @@ import com.ikimaka.cryptoapp.data.network.ApiFactory.BASE_IMAGE_URL
 import com.ikimaka.cryptoapp.utils.convertTimestampToTime
 
 @Entity(tableName = "full_price_list")
-data class CoinPriceInfo(
+data class CoinInfoDto(
     @SerializedName("TYPE")
     @Expose
     val type: String?,

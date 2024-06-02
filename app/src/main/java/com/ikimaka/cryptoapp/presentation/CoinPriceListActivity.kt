@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.ikimaka.cryptoapp.R
 import com.ikimaka.cryptoapp.presentation.adapters.CoinInfoAdapter
-import com.ikimaka.cryptoapp.data.model.CoinPriceInfo
+import com.ikimaka.cryptoapp.data.network.model.CoinInfoDto
 
 class CoinPriceListActivity : AppCompatActivity() {
 
@@ -24,7 +24,7 @@ class CoinPriceListActivity : AppCompatActivity() {
         val adapter = CoinInfoAdapter(this)
 
         adapter.onCoinClickListener = object: CoinInfoAdapter.OnCoinClickListener {
-            override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
+            override fun onCoinClick(coinPriceInfo: CoinInfoDto) {
 
                 val intent = CoinDetailActivity.newIntent(
                     this@CoinPriceListActivity,

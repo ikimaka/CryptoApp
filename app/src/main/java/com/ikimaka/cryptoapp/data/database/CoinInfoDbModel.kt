@@ -1,6 +1,12 @@
-package com.ikimaka.cryptoapp.domain
+package com.ikimaka.cryptoapp.data.database
 
-data class CoinInfo(
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "full_price_list")
+data class CoinInfoDbModel(
+    @PrimaryKey
     val fromSymbol: String,
     val toSymbol: String?,
     val price: String?,
@@ -9,4 +15,7 @@ data class CoinInfo(
     val lastMarket: String?,
     val lastUpdate: Long?,
     val imageUrl: String?
-)
+) {
+
+
+}
