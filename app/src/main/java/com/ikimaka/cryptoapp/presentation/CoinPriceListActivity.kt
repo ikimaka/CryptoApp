@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.ikimaka.cryptoapp.R
+import com.ikimaka.cryptoapp.databinding.ActivityCoinPriceListBinding
 import com.ikimaka.cryptoapp.presentation.adapters.CoinInfoAdapter
 import com.ikimaka.cryptoapp.domain.CoinInfo
 
@@ -13,13 +14,13 @@ class CoinPriceListActivity : AppCompatActivity() {
 
     private lateinit var viewModel: CoinViewModel
 
-
+    private val binding by lazy {
+        ActivityCoinPriceListBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_coin_price_list)
-
-        val rvCoinPriceList: RecyclerView = findViewById(R.id.rvCoinPriceList)
+        setContentView(binding.root)
 
         val adapter = CoinInfoAdapter(this)
 
@@ -33,7 +34,7 @@ class CoinPriceListActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-        rvCoinPriceList.adapter = adapter
+        binding.rvCoinPriceList.adapter = adapter
 
         viewModel = ViewModelProvider(this).get(CoinViewModel::class.java)
 
