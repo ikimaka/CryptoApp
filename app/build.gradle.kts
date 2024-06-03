@@ -39,13 +39,13 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
 
-    val lifecycle_version = "2.7.0"
+    val lifecycle_version = "2.8.0"
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
@@ -59,11 +59,11 @@ dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
+    //implementation ("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
 
 
-    implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
-    implementation("io.reactivex.rxjava3:rxjava:3.1.5")
+    //implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
+    //implementation("io.reactivex.rxjava3:rxjava:3.1.5")
 
     val room_version = "2.6.1"
 
@@ -72,6 +72,8 @@ dependencies {
     implementation("androidx.room:room-rxjava3:$room_version")
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$room_version")
+
+    implementation ("androidx.work:work-runtime-ktx:2.9.0")
 
 
 
