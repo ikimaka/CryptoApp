@@ -8,8 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.ikimaka.cryptoapp.R
-import com.ikimaka.cryptoapp.data.network.ApiFactory.BASE_IMAGE_URL
-import com.ikimaka.cryptoapp.utils.convertTimestampToTime
 import com.squareup.picasso.Picasso
 
 class CoinDetailActivity : AppCompatActivity() {
@@ -44,10 +42,10 @@ class CoinDetailActivity : AppCompatActivity() {
             tvMinPrice.text = it.lowDay
             tvMaxPrice.text = it.highDay
             tvLastMarket.text = it.lastMarket
-            tvLastUpdate.text = convertTimestampToTime(it.lastUpdate)
+            tvLastUpdate.text = it.lastUpdate
             tvFromSymbol.text = it.fromSymbol
             tvToSymbol.text = it.toSymbol
-            Picasso.get().load(BASE_IMAGE_URL + it.imageUrl).into(ivLogoCoinDetail)
+            Picasso.get().load(it.imageUrl).into(ivLogoCoinDetail)
         }
     }
 

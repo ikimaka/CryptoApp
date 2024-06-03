@@ -14,7 +14,7 @@ data class CoinInfoDbModel(
     val highDay: String?,
     val lastMarket: String?,
     val lastUpdate: Long?,
-    val imageUrl: String?
+    val imageUrl: String
 ) {
 
 
