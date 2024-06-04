@@ -35,11 +35,13 @@ class CoinPriceListActivity : AppCompatActivity() {
             }
         }
         binding.rvCoinPriceList.adapter = adapter
+        //Delete animation from RecyclerView
+        //binding.rvCoinPriceList.itemAnimator = null
 
         viewModel = ViewModelProvider(this).get(CoinViewModel::class.java)
 
         viewModel.coinInfoList.observe(this) {
-            adapter.coinInfoList = it
+            adapter.submitList(it)
         }
 
     }
