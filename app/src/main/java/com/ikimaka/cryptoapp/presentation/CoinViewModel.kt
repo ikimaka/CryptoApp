@@ -3,13 +3,11 @@ package com.ikimaka.cryptoapp.presentation
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.viewModelScope
 import com.ikimaka.cryptoapp.data.repository.CoinRepositoryImpl
 import com.ikimaka.cryptoapp.domain.CoinInfo
 import com.ikimaka.cryptoapp.domain.GetCoinInfoListUseCase
 import com.ikimaka.cryptoapp.domain.GetCoinInfoUseCase
 import com.ikimaka.cryptoapp.domain.LoadDataUseCase
-import kotlinx.coroutines.launch
 
 
 class CoinViewModel(application: Application): AndroidViewModel(application) {
@@ -27,9 +25,7 @@ class CoinViewModel(application: Application): AndroidViewModel(application) {
     }
 
     init {
-        viewModelScope.launch {
-            loadDataUseCase()
-        }
+        loadDataUseCase()
     }
 
 }
