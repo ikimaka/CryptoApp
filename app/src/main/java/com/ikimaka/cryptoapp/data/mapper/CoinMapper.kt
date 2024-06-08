@@ -11,8 +11,10 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
+import javax.inject.Inject
 
-class CoinMapper {
+class CoinMapper @Inject constructor() {
+
     fun mapDtoToDbModel(dto: CoinInfoDto): CoinInfoDbModel {
         return CoinInfoDbModel(
             fromSymbol = dto.fromSymbol,

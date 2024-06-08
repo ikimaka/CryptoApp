@@ -9,16 +9,26 @@ import com.ikimaka.cryptoapp.R
 import com.ikimaka.cryptoapp.databinding.ActivityCoinPriceListBinding
 import com.ikimaka.cryptoapp.presentation.adapters.CoinInfoAdapter
 import com.ikimaka.cryptoapp.domain.CoinInfo
+import javax.inject.Inject
 
 class CoinPriceListActivity : AppCompatActivity() {
 
     private lateinit var viewModel: CoinViewModel
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val component by lazy {
+        (application as CoinApp).component
+    }
+
 
     private val binding by lazy {
         ActivityCoinPriceListBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        component.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
@@ -37,7 +47,7 @@ class CoinPriceListActivity : AppCompatActivity() {
         //Delete animation from RecyclerView
         //binding.rvCoinPriceList.itemAnimator = null
 
-        viewModel = ViewModelProvider(this).get(CoinViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(CoinViewModel::class.java)
 
         viewModel.coinInfoList.observe(this) {
             adapter.submitList(it)

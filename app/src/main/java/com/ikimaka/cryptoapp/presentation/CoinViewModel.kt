@@ -1,22 +1,19 @@
 package com.ikimaka.cryptoapp.presentation
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.ikimaka.cryptoapp.data.repository.CoinRepositoryImpl
+import androidx.lifecycle.ViewModel
 import com.ikimaka.cryptoapp.domain.CoinInfo
 import com.ikimaka.cryptoapp.domain.GetCoinInfoListUseCase
 import com.ikimaka.cryptoapp.domain.GetCoinInfoUseCase
 import com.ikimaka.cryptoapp.domain.LoadDataUseCase
+import javax.inject.Inject
 
 
-class CoinViewModel(application: Application): AndroidViewModel(application) {
-
-    private val repository = CoinRepositoryImpl(application)
-
-    private val getCoinInfoListUseCase = GetCoinInfoListUseCase(repository)
-    private val getCoinInfoUseCase = GetCoinInfoUseCase(repository)
-    private val loadDataUseCase = LoadDataUseCase(repository)
+class CoinViewModel @Inject constructor(
+    private val getCoinInfoListUseCase: GetCoinInfoListUseCase,
+    private val getCoinInfoUseCase: GetCoinInfoUseCase,
+    private val loadDataUseCase: LoadDataUseCase
+): ViewModel() {
 
     val coinInfoList = getCoinInfoListUseCase()
 

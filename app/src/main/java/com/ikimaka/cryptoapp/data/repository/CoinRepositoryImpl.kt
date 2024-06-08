@@ -6,17 +6,20 @@ import androidx.lifecycle.map
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import com.ikimaka.cryptoapp.data.database.AppDatabase
+import com.ikimaka.cryptoapp.data.database.CoinInfoDao
 import com.ikimaka.cryptoapp.data.mapper.CoinMapper
 import com.ikimaka.cryptoapp.data.network.ApiFactory
 import com.ikimaka.cryptoapp.data.workers.RefreshDataWorker
 import com.ikimaka.cryptoapp.domain.CoinInfo
 import com.ikimaka.cryptoapp.domain.CoinRepository
 import kotlinx.coroutines.delay
+import javax.inject.Inject
 
-class CoinRepositoryImpl(private val application: Application) : CoinRepository {
-
-    private val coinInfoDao = AppDatabase.getInstance(application).coinPriceInfoDao()
-    private val mapper = CoinMapper()
+class CoinRepositoryImpl @Inject constructor(
+    private val application: Application,
+    private val mapper: CoinMapper,
+    private val coinInfoDao: CoinInfoDao
+) : CoinRepository {
 
     override fun getCoinInfoList(): LiveData<List<CoinInfo>> {
         val coinInfoList = coinInfoDao.getPriceList()
